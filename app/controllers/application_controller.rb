@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def encode_token(payload)
+    # TODO: more secure secret key
     JWT.encode(payload, 's3cr3t_k3y')
   end 
 
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::API
     if auth_header
       token = auth_header.split(' ')[1]
       begin
+        # TODO: more secure secret key
         JWT.decode(token, 's3cr3t_k3y', true, algorithm: 'HS256')
       rescue JWT::DecodeError
         nil
