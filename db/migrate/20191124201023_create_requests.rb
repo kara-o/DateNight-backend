@@ -8,7 +8,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.string :neighborhood
       t.string :price
       t.integer :user_id
-      t.integer :itinerary_id
+      t.integer :itinerary_id, null: true
 
       t.timestamps
     end
