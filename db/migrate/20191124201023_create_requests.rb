@@ -4,9 +4,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.datetime :date
       t.datetime :start_time
       t.datetime :end_time
-      t.string :cuisine
-      t.string :neighborhood
-      t.string :price
+      t.integer :size
       t.integer :user_id
       t.integer :itinerary_id, null: true
 
