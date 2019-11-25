@@ -1,26 +1,18 @@
 class Api::V1::RequestsController < ApplicationController
 
   def create
-    if current_user.id == params[:user_id].to_i
-      request = Request.create(request_params)
-      if request.valid?
-        render json: { request: request }, status: :created
-      else 
-        render json: { errors: { error_obj: request.errors.messages, full_messages: request.errors.full_messages} }, status: :not_acceptable
-      end 
+    request = Request.create(request_params)
+    if request.valid?
+      render json: { request: request }, status: :created
     else 
-      byebug
-      render json: { message: 'User ids do not match' }
-    end 
-    
-
-
+      render json: { errors: { error_obj: request.errors.messages, full_messages: request.errors.full_messages} }, status: :not_acceptable
+    end
   end 
 
   private
 
   def request_params
-    params.require(:request).permit(:date, :start_time, :end_time, :cuisine, :neighborhood, :price, :user_id)
+    params.require(:request).permit(:date, :start_time, :end_time, :size, :user_id)
   end 
 
 end

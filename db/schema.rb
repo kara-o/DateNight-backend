@@ -10,18 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_201023) do
+ActiveRecord::Schema.define(version: 2019_11_25_022054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cuisines_requests", force: :cascade do |t|
+    t.integer "cuisine_id"
+    t.integer "request_id"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "neighborhoods_requests", force: :cascade do |t|
+    t.integer "neighborhood_id"
+    t.integer "request_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.string "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "prices_requests", force: :cascade do |t|
+    t.integer "price_id"
+    t.integer "request_id"
+  end
 
   create_table "requests", force: :cascade do |t|
     t.datetime "date"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string "cuisine"
-    t.string "neighborhood"
-    t.string "price"
+    t.integer "size"
     t.integer "user_id"
     t.integer "itinerary_id"
     t.datetime "created_at", precision: 6, null: false

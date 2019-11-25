@@ -1,7 +1,51 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+cuisines = [
+  'All Cuisines',
+  'American',
+  'Italian',
+  'Steakhouse',
+  'Seafood',
+  'French',
+  'Indian',
+  'Mexican',
+  'Japanese',
+  'Chinese',
+  'German',
+  'Spanish',
+  'Pizzeria',
+  'Barbeque',
+  'Greek',
+  'Tapas',
+  'Irish',
+  'Vegetarian / Vegan',
+  'Brewery',
+  'Cocktail Bar',
+  'Wine Bar',
+  'Thai',
+  'Vietnamese'
+]
+
+neighborhoods = [
+  'Capitol Hill / First Hill',
+  'Downtown',
+  'International District',
+  'Waterfront / Belltown',
+  'Lake Union / Eastlake',
+  'Wallingford',
+  'Leschi / Madrona / Madison Park',
+  'Queen Anne / Magnolia',
+  'West Seattle',
+  'U District',
+  'Pioneer Square',
+  'Fremont / Wallingford',
+  'Greenwood / Greenlake / Phinney Ridge',
+  'Ballard',
+  'Columbia City / Beacon Hill'
+]
+
+cuisines.each do |cuisine|
+  Cuisine.create(category: cuisine)
+end 
+
+neighborhoods.each do |neighborhood|
+  Neighborhood.create(name: neighborhood)
+end
