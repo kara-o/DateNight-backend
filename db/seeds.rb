@@ -42,6 +42,17 @@ neighborhoods = [
   'Columbia City / Beacon Hill'
 ]
 
+prices = [
+  '$',
+  '$$',
+  '$$$',
+  '$$$$'
+]
+
+Cuisine.destroy_all
+Neighborhood.destroy_all
+Price.destroy_all
+
 cuisines.each do |cuisine|
   Cuisine.create(category: cuisine)
 end 
@@ -49,3 +60,7 @@ end
 neighborhoods.each do |neighborhood|
   Neighborhood.create(name: neighborhood)
 end
+
+prices.each do |price|
+  Price.create(amount: price)
+end 
