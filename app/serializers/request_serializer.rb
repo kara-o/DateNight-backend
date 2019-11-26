@@ -1,3 +1,47 @@
 class RequestSerializer < ActiveModel::Serializer
-  attributes :id, :date, :start_time, :end_time, :size, :cuisines_requests, :neighborhoods_requests, :prices_requests
+  attributes :id, :date, :start, :end, :size, :cuisines, :neighborhoods, :prices, :created_at, :status
+
+  def date
+    self.object.date.in_time_zone("Pacific Time (US & Canada)").strftime('%D')
+  end 
+
+  def start 
+    self.object.start_time.in_time_zone("Pacific Time (US & Canada)").strftime('%l:%M %p')
+  end 
+
+  def end
+    self.object.end_time.in_time_zone("Pacific Time (US & Canada)").strftime('%l:%M %p')
+  end 
+
+  def cuisines
+    result = []
+    self.object.cuisines_requests.each do |c|
+      result << Cuisine.find(c.cuisine_id)
+    end 
+    result
+  end 
+
+  def neighborhoods
+    result = []
+    self.object.neighborhoods_requests.each do |n|
+      result << Neighborhood.find(n.neighborhood_id)
+    end 
+    result
+  end 
+
+  def prices 
+    result = []
+    self.object.prices_requests.each do |p|
+      result << Price.find(p.price_id)
+    end 
+    result
+  end 
+
+  def created_at
+    self.object.created_at.strftime('%a %b %Y %l:%M %p')
+  end 
+
+  def updated_at
+    self.object.updated_at.strftime('%a %b %Y %l:%M %p')
+  end 
 end
