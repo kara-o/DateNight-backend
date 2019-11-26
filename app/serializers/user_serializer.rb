@@ -4,4 +4,10 @@ class UserSerializer < ActiveModel::Serializer
   def join_date
     self.object.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%B %Y')
   end 
+
+  # def requests
+  #   Request.find_by(user_id: self.object.id).collect do |r|
+  #     RequestSerializer.new(r)
+  #   end 
+  # end 
 end
