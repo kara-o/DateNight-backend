@@ -48,7 +48,7 @@ prices = [
   '$$$',
   '$$$$'
 ]
-
+Request.destroy_all
 Cuisine.destroy_all
 Neighborhood.destroy_all
 Price.destroy_all
