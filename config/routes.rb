@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
-        resources :users, only: [:create] do
+        resources :users, only: [:create, :index] do
           resources :requests, only: [:create, :index, :show] do
             resources :cuisines_requests, only: [:create, :index]
             resources :neighborhoods_requests, only: [:create, :index]
