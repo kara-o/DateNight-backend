@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :requests
+  has_many :itineraries, through: :requests
+
   has_secure_password
   validates :username, presence: true
   validates :username, uniqueness: true
