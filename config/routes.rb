@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         resources :cuisines, only: [:index]
         resources :neighborhoods, only: [:index]
         resources :prices, only: [:index]
+        get '/requests', to: 'requests#index'
       end
     end
   end
