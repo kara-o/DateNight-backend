@@ -1,10 +1,10 @@
 class Request < ApplicationRecord
   belongs_to :user
-  has_many :cuisines_requests
+  has_many :cuisines_requests, inverse_of: :request
   has_many :cuisines, through: :cuisines_requests
-  has_many :neighborhoods_requests
+  has_many :neighborhoods_requests, inverse_of: :request
   has_many :neighborhoods, through: :neighborhoods_requests
-  has_many :prices_requests
+  has_many :prices_requests, inverse_of: :request
   has_many :prices, through: :prices_requests
   has_one :itinerary
 
