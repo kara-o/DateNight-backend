@@ -1,18 +1,20 @@
 class Api::V1::RequestsController < ApplicationController
 
   def create
+    byebug
     request = Request.create(request_params)
     if request.valid?
       render json: { request: request }, status: :created
     else 
       render json: { errors: { error_obj: request.errors.messages, full_messages: request.errors.full_messages} }, status: :not_acceptable
-    end
+    end 
+    
   end 
 
   private
 
   def request_params
-    params.require(:request).permit(:date, :start_time, :end_time, :size, :user_id)
+    params.require(:request).permit(:date, :start_time, :end_time, :size, :user_id, :cuisines_requests, :neighborhoods_requests, :prices_requests)
   end 
 
 end
