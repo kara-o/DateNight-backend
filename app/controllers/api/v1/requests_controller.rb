@@ -10,7 +10,11 @@ class Api::V1::RequestsController < ApplicationController
   end 
 
   def index
-    requests = Request.all 
+    if params[:user_id]
+      requests = Request.where(user_id: params[:user_id])
+    else
+      requests = Request.order(:date)
+    end
     render json: requests
   end 
 
