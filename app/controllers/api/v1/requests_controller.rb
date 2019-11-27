@@ -10,7 +10,6 @@ class Api::V1::RequestsController < ApplicationController
   end 
 
   def index
-    byebug
     requests = Request.all 
     render json: requests
   end 
