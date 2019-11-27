@@ -1,5 +1,5 @@
 class RequestSerializer < ActiveModel::Serializer
-  attributes :id, :date, :start, :end, :size, :cuisines, :neighborhoods, :prices, :created_at, :status
+  attributes :id, :date, :start, :end, :size, :cuisines, :neighborhoods, :prices, :created_at, :status, :user
 
   def date
     self.object.date.in_time_zone("Pacific Time (US & Canada)").strftime('%D')
@@ -43,5 +43,9 @@ class RequestSerializer < ActiveModel::Serializer
 
   def updated_at
     self.object.updated_at.strftime('%a %b %Y %l:%M %p')
+  end 
+
+  def user
+    User.find(self.object.user_id)
   end 
 end
