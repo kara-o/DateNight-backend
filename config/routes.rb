@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         resources :users, only: [:create, :index] do
-          resources :requests, only: [:create, :index, :show] do
+          resources :requests, only: [:create, :index, :show, :edit, :update] do
             resources :cuisines_requests, only: [:create, :index]
             resources :neighborhoods_requests, only: [:create, :index]
             resources :prices_requests, only: [:create, :index]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :cuisines, only: [:index]
         resources :neighborhoods, only: [:index]
         resources :prices, only: [:index]
-        get '/requests', to: 'requests#index'
+        resources :requests, only: [:index, :update]
       end
     end
   end
