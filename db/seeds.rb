@@ -48,6 +48,8 @@ prices = [
   '$$$',
   '$$$$'
 ]
+
+User.destroy_all
 Request.destroy_all
 Cuisine.destroy_all
 Neighborhood.destroy_all
@@ -65,4 +67,5 @@ prices.each do |price|
   Price.create(amount: price)
 end
 
+User.create(username: 'kara', first_name: 'kara', last_name: 'odle', email: 'kara@flatiron.com', password: '123')
 User.create(username: 'admin', first_name: 'admin', last_name: 'admin', email: 'karajo.odle@gmail.com', password: '123', admin: true)

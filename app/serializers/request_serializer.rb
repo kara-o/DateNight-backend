@@ -2,7 +2,7 @@ class RequestSerializer < ActiveModel::Serializer
   attributes :id, :date, :start, :end, :size, :cuisines, :neighborhoods, :prices, :created_at, :status, :user
 
   def date
-    self.object.date.in_time_zone("Pacific Time (US & Canada)").strftime('%D')
+    self.object.date.in_time_zone("Pacific Time (US & Canada)").strftime('%-m/%-d/%Y')
   end 
 
   def start 
@@ -38,11 +38,11 @@ class RequestSerializer < ActiveModel::Serializer
   end 
 
   def created_at
-    self.object.created_at.strftime('%a %b %Y %l:%M %p')
+    self.object.created_at.strftime('Created on %m/%d/%Y at %l:%M%p')
   end 
 
   def updated_at
-    self.object.updated_at.strftime('%a %b %Y %l:%M %p')
+    self.object.updated_at.strftime('Edited on %m/%d/%Y at %l:%M%p')
   end 
 
   def user
