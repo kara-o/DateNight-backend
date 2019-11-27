@@ -65,4 +65,4 @@ prices.each do |price|
   Price.create(amount: price)
 end
 
-User.create(username: 'admin', first_name: 'admin', last_name: 'admin', email: 'karajo.odle@gmail.com', password: '123')
+User.create(username: 'admin', first_name: 'admin', last_name: 'admin', email: 'karajo.odle@gmail.com', password: '123', admin: true)

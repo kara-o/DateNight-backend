@@ -46,6 +46,7 @@ class RequestSerializer < ActiveModel::Serializer
   end 
 
   def user
-    User.find(self.object.user_id)
+    user = User.find(self.object.user_id)
+    UserSerializer.new(user)
   end 
 end
