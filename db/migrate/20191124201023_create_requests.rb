@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.integer :size
       t.integer :user_id
       t.integer :itinerary_id, null: true
+      t.string :status, default: 'requested'
 
       t.timestamps
     end
