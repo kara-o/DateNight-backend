@@ -50,22 +50,22 @@ prices = [
 ]
 
 User.destroy_all
-Request.destroy_all
-Cuisine.destroy_all
-Neighborhood.destroy_all
-Price.destroy_all
+# Request.destroy_all
+# Cuisine.destroy_all
+# Neighborhood.destroy_all
+# Price.destroy_all
 
-cuisines.each do |cuisine|
-  Cuisine.create(category: cuisine)
-end 
+# cuisines.each do |cuisine|
+#   Cuisine.create(category: cuisine)
+# end 
 
-neighborhoods.each do |neighborhood|
-  Neighborhood.create(name: neighborhood)
-end
+# neighborhoods.each do |neighborhood|
+#   Neighborhood.create(name: neighborhood)
+# end
 
-prices.each do |price|
-  Price.create(amount: price)
-end
+# prices.each do |price|
+#   Price.create(amount: price)
+# end
 
-User.create(username: 'kara', first_name: 'kara', last_name: 'odle', email: 'kara@flatiron.com', password: '123')
-User.create(username: 'admin', first_name: 'admin', last_name: 'admin', email: 'karajo.odle@gmail.com', password: '123', admin: true)
+# User.create(username: 'kara', first_name: 'kara', last_name: 'odle', email: 'kara@flatiron.com', password: '123')
+# User.create(username: 'admin', first_name: 'admin', last_name: 'admin', email: 'karajo.odle@gmail.com', password: '123', admin: true)
