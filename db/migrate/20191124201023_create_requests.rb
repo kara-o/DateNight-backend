@@ -4,10 +4,13 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.datetime :date
       t.datetime :start_time
       t.datetime :end_time
-      t.integer :size
+      t.string :neighborhood
+      t.integer :party_size
+      t.string :price_range
+      t.text :notes
       t.integer :user_id
-      t.integer :itinerary_id, null: true
-      t.string :status, default: 'requested'
+      t.boolean :fulfilled, default: 'false'
+      t.boolean :cancelled, default: 'false'
 
       t.timestamps
     end

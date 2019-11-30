@@ -1,29 +1,3 @@
-cuisines = [
-  'All Cuisines',
-  'American',
-  'Italian',
-  'Steakhouse',
-  'Seafood',
-  'French',
-  'Indian',
-  'Mexican',
-  'Japanese',
-  'Chinese',
-  'German',
-  'Spanish',
-  'Pizzeria',
-  'Barbeque',
-  'Greek',
-  'Tapas',
-  'Irish',
-  'Vegetarian / Vegan',
-  'Brewery',
-  'Cocktail Bar',
-  'Wine Bar',
-  'Thai',
-  'Vietnamese'
-]
-
 neighborhoods = [
   'Capitol Hill / First Hill',
   'Downtown',
@@ -43,10 +17,9 @@ neighborhoods = [
 ]
 
 prices = [
-  '$',
-  '$$',
-  '$$$',
-  '$$$$'
+  '$$ ( $30 and under )',
+  '$$$ ( $31 to $50 )',
+  '$$$$ ( $51 and over )'
 ]
 
 User.destroy_all
