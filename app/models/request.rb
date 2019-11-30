@@ -1,12 +1,9 @@
 class Request < ApplicationRecord
   belongs_to :user
-  has_many :cuisines_requests, inverse_of: :request
-  has_many :cuisines, through: :cuisines_requests
-  has_many :neighborhoods_requests, inverse_of: :request
-  has_many :neighborhoods, through: :neighborhoods_requests
-  has_many :prices_requests, inverse_of: :request
-  has_many :prices, through: :prices_requests
-  has_one :itinerary
+  belongs_to :neighborhood
+  belongs_to :price_range
+  has_many :itinerary_items
+  has_and_belongs_to_many :contacts
 
   accepts_nested_attributes_for :cuisines_requests, reject_if: proc { |attributes| attributes['cuisine_id'].blank? }
   accepts_nested_attributes_for :neighborhoods_requests, reject_if: proc { |attributes| attributes['neighborhood_id'].blank? }

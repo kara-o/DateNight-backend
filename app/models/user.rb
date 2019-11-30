@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :requests
-  has_many :itineraries, through: :requests
+  has_many :itinerary_items, through: :requests
 
   
   # validates :username, presence: true

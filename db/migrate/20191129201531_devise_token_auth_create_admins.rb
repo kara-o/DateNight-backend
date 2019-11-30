@@ -29,7 +29,6 @@ class DeviseTokenAuthCreateAdmins < ActiveRecord::Migration[6.0]
       # t.datetime :locked_at
 
       ## User Info
-      t.string :username
       t.string :email
 
       ## Tokens
