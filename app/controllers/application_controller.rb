@@ -1,12 +1,23 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
+  respond_to :json
   devise_token_auth_group :member, contains: [:user, :admin]
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  protected
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up) do |user_params|
+      user_params.permit(:first_name, :last_name)
+    end
   end
+
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  # end
   
   # before_action :authorized
 
