@@ -1,4 +1,5 @@
 class Api::V1::RequestsController < ApplicationController
+  before_action :authenticate_member!
 
   def create
     request = Request.create(request_params)
@@ -35,7 +36,7 @@ class Api::V1::RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range, :user_id, contacts_attributes: [:phone])
+    params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, contacts_attributes: [:phone])
   end 
 
 end

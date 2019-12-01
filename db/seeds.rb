@@ -15,6 +15,13 @@ neighborhoods = [
   'Columbia City / Beacon Hill'
 ]
 
+prices = [
+  '$',
+  '$$',
+  '$$$',
+  '$$$$'
+]
+
 User.destroy_all
 # Request.destroy_all
 # Cuisine.destroy_all
@@ -27,6 +34,10 @@ User.destroy_all
 
 neighborhoods.each do |neighborhood|
   Neighborhood.create(name: neighborhood)
+end
+
+prices.each do |price|
+  PriceRange.create(max_amount: price)
 end
 
 # prices.each do |price|
