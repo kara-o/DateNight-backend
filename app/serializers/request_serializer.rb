@@ -1,5 +1,5 @@
 class RequestSerializer < ActiveModel::Serializer
-  attributes :id, :start_time, :end_time, :party_size, :neighborhood_id, :price_range_id, :user_id, :created_at, :updated_at, :fulfilled, :cancelled, :notes
+  attributes :id, :start_time, :end_time, :party_size, :neighborhood_id, :price_range_id, :user_id, :created_at, :updated_at, :fulfilled, :cancelled, :notes, :contacts
 
   def created_at
     self.object.created_at.strftime('Created on %m/%d/%Y at %l:%M%p')
