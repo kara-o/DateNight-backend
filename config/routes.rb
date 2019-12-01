@@ -15,6 +15,8 @@ Rails.application.routes.draw do
             resources :itinerary_items, only: [:index]
           end
         end
+      
+        get '/neighborhoods', to: 'neighborhoods#index'
       end
     end
 end

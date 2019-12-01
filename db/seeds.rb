@@ -4,7 +4,6 @@ neighborhoods = [
   'International District',
   'Waterfront / Belltown',
   'Lake Union / Eastlake',
-  'Wallingford',
   'Leschi / Madrona / Madison Park',
   'Queen Anne / Magnolia',
   'West Seattle',
@@ -14,12 +13,6 @@ neighborhoods = [
   'Greenwood / Greenlake / Phinney Ridge',
   'Ballard',
   'Columbia City / Beacon Hill'
-]
-
-prices = [
-  '$$ ( $30 and under )',
-  '$$$ ( $31 to $50 )',
-  '$$$$ ( $51 and over )'
 ]
 
 User.destroy_all
@@ -32,9 +25,9 @@ User.destroy_all
 #   Cuisine.create(category: cuisine)
 # end 
 
-# neighborhoods.each do |neighborhood|
-#   Neighborhood.create(name: neighborhood)
-# end
+neighborhoods.each do |neighborhood|
+  Neighborhood.create(name: neighborhood)
+end
 
 # prices.each do |price|
 #   Price.create(amount: price)
