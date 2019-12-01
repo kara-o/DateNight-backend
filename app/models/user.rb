@@ -12,8 +12,10 @@ class User < ApplicationRecord
   # # validates :email, presence: true
   # # validates :email, uniqueness: true
   # # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  # validates :first_name, presence: true 
-  # validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone, presence: true
+  # TODO: validate phone format
 
   include DeviseTokenAuth::Concerns::User
 end
