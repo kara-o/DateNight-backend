@@ -39,13 +39,7 @@ ActiveRecord::Schema.define(version: 2019_11_30_210728) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "phone"
-  end
-
-  create_table "contacts_requests", force: :cascade do |t|
-    t.bigint "contact_id"
-    t.bigint "request_id"
-    t.index ["contact_id"], name: "index_contacts_requests_on_contact_id"
-    t.index ["request_id"], name: "index_contacts_requests_on_request_id"
+    t.integer "request_id"
   end
 
   create_table "itinerary_items", force: :cascade do |t|
