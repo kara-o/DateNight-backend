@@ -1,4 +1,4 @@
-class AdminAuth::SessionsController < DeviseTokenAuth::SessionsController
+class Overrides::AdminAuth::SessionsController < DeviseTokenAuth::SessionsController
   protected
 
   def render_create_success
