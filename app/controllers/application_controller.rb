@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
+  
   respond_to :json
   devise_token_auth_group :member, contains: [:user, :admin]
 
