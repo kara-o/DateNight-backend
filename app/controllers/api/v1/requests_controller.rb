@@ -11,10 +11,11 @@ class Api::V1::RequestsController < ApplicationController
   end 
 
   def index
+    byebug
     if params[:user_id]
       requests = Request.where(user_id: params[:user_id])
     else
-      requests = Request.order(:date)
+      requests = Request.order(:start_date)
     end
     render json: requests
   end 

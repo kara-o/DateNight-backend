@@ -22,6 +22,7 @@ prices = [
   '$$$$'
 ]
 
+Admin.destroy_all
 User.destroy_all
 Request.destroy_all
 Neighborhood.destroy_all
@@ -34,3 +35,5 @@ end
 prices.each do |price|
   PriceRange.create(max_amount: price)
 end
+
+Admin.create(email: 'karajo.odle@gmail.com', password: '123456')
