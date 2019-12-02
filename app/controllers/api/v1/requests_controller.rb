@@ -26,7 +26,7 @@ class Api::V1::RequestsController < ApplicationController
 
   def update
     request = Request.find(params[:id])
-    if request.update(status: params[:status])
+    if request.update(request_params)
       render json: { request: RequestSerializer.new(request) }
     else
       render json: { errors: { error_obj: request.errors.messages, full_messages: request.errors.full_messages} }, status: :not_acceptable
@@ -36,7 +36,7 @@ class Api::V1::RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, contacts_attributes: [:id, :phone])
+    params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, :cancelled, :fulfilled, contacts_attributes: [:id, :phone])
   end 
 
 end
