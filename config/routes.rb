@@ -10,18 +10,17 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
 
-          # as :admin do
-          #   resources :users, only:[:index]
-          #   resources :requests, only:[:index, :show, :update]
-          #   resources :itinerary_items, only: [:create]
-          # end
+        # TODO: ensure regular users cannot access these routes
         devise_scope :admin do
           get '/users', to: 'users#index'
           get '/requests', to: 'requests#index'
           get '/requests/:id', to: 'requests#show'
           post '/requests/:id', to: 'requests#update'
           patch '/requests/:id', to: 'requests#update'
-          get '/itinerary_items', to: 'itinerary_items#create'
+          get '/itinerary_items', to: 'itinerary_items#index'
+          post '/itinerary_items', to: 'itinerary_items#create'
+          get '/itinerary_packages', to: 'itinerary_packages#index'
+          post '/itinerary_packages', to: 'itinerary_packages#create'
         end
     
         resources :users, only: [:create] do

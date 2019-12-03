@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_210728) do
+ActiveRecord::Schema.define(version: 2019_12_03_041733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,26 @@ ActiveRecord::Schema.define(version: 2019_11_30_210728) do
     t.text "blurb"
     t.string "res_link"
     t.string "make_res_link"
+  end
+
+  create_table "itinerary_package_items", force: :cascade do |t|
+    t.integer "time"
+    t.string "address"
+    t.string "place"
+    t.text "blurb"
+    t.integer "itinerary_package_id"
+    t.string "make_res_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "itinerary_packages", force: :cascade do |t|
+    t.string "title"
+    t.integer "neighborhood_id"
+    t.text "blurb"
+    t.integer "price_range_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "neighborhoods", force: :cascade do |t|
