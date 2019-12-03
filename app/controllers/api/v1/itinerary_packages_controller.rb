@@ -15,6 +15,11 @@ class Api::V1::ItineraryPackagesController < ApplicationController
     render json: itin_pkgs
   end
 
+  def show
+    itin_pkg = ItineraryPackage.find(params[:id])
+    render json: itin_pkg
+  end
+
   private
 
   def itin_pkg_params
