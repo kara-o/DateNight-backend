@@ -34,6 +34,23 @@ class Api::V1::RequestsController < ApplicationController
     end 
   end 
 
+  def apply_package
+    itin_package = ItineraryPackage.find(params[:itinerary_package_id])
+    itin_package.itinerary_package_items.each do |pkg_item|
+      ItineraryItem.create({
+        request_id: params[:id],
+        time: pkg_item.time,  # TODO: make datetime?
+        address: pkg_item.address,
+        place: pkg_item.place,
+        blurb: pkg_item.blurb,
+        make_res_link: pkg_item.make_res_link,
+      })
+    end
+
+    request = Request.find(params[:id])
+    render json: { request: RequestSerializer.new(request) }
+  end
+
   private
 
   def request_params

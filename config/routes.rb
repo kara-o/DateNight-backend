@@ -20,6 +20,9 @@ Rails.application.routes.draw do
           get '/itinerary_items', to: 'itinerary_items#index'
           post '/itinerary_items', to: 'itinerary_items#create'
 
+          # Applying a Itinerary Package to a request
+          post '/requests/:id/itinerary_packages', to: 'requests#apply_package'
+
           resources :itinerary_packages, only: [:index, :create, :show] do
             resources :itinerary_package_items, only: [:create, :index]
           end
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
       
         get '/neighborhoods', to: 'neighborhoods#index'
         get '/price_ranges', to: 'price_ranges#index'
+
       end
     end
 end
