@@ -11,6 +11,7 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
       make_res_link: params[:make_res_link],
       map: params[:map]
     })
+
     if pkg_item.valid?
       render json: pkg_item, status: :created
     else
