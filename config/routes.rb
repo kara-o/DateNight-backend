@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       sessions: 'overrides/admin_auth/sessions',
       registrations: 'overrides/admin_auth/registrations'
     }
-
+    
     namespace :api do
       namespace :v1 do
 
