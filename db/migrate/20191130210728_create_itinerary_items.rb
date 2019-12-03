@@ -8,6 +8,7 @@ class CreateItineraryItems < ActiveRecord::Migration[6.0]
       t.text :blurb
       t.string :res_link, null: true
       t.string :make_res_link, null: true
+      t.string :map
     end
   end
 end

@@ -9,6 +9,7 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
       place: params[:place],
       blurb: params[:blurb],
       make_res_link: params[:make_res_link],
+      map: params[:map]
     })
     if pkg_item.valid?
       render json: pkg_item, status: :created
@@ -25,7 +26,7 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
   private
 
   def pkg_item_params
-    params.require(:itinerary_package_item).permit(:itinerary_package_id, :time, :address, :place, :blurb, :make_res_link)
+    params.require(:itinerary_package_item).permit(:itinerary_package_id, :time, :address, :place, :blurb, :make_res_link, :map)
   end
 
 end

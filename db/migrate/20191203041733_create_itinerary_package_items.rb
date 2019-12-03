@@ -7,6 +7,7 @@ class CreateItineraryPackageItems < ActiveRecord::Migration[6.0]
       t.text :blurb
       t.integer :itinerary_package_id
       t.string :make_res_link
+      t.string :map
 
       t.timestamps
     end
