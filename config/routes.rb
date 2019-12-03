@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           get '/requests', to: 'requests#index'
           get '/requests/:id', to: 'requests#show'
           post '/requests/:id', to: 'requests#update'
+          patch '/requests/:id', to: 'requests#update'
           get '/itinerary_items', to: 'itinerary_items#create'
         end
     
