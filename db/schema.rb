@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_041733) do
     t.text "blurb"
     t.string "res_link"
     t.string "make_res_link"
+    t.string "map"
   end
 
   create_table "itinerary_package_items", force: :cascade do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_041733) do
     t.text "blurb"
     t.integer "itinerary_package_id"
     t.string "make_res_link"
+    t.string "map"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
