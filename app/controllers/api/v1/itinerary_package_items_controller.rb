@@ -9,7 +9,8 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
       place: params[:place],
       blurb: params[:blurb],
       make_res_link: params[:make_res_link],
-      map: params[:map]
+      map_url: params[:map_url],
+      map_iframe_url: params[:map_iframe_url]
     })
 
     if pkg_item.valid?
@@ -27,11 +28,5 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
   def destroy
     ItineraryPackageItem.destroy(params[:id])
   end 
-
-  private
-
-  def pkg_item_params
-    params.require(:itinerary_package_item).permit(:itinerary_package_id, :time, :address, :place, :blurb, :make_res_link, :map)
-  end
 
 end

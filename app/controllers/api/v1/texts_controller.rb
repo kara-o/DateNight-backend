@@ -10,15 +10,27 @@ class Api::V1::TextsController < ApplicationController
   end
 
   def create
-    #contacts = Contact.where(request_id: params[:request_id])
-    contacts = ['12069102789']
-    contacts.each do |number|
-      message = @client.messages.create(
-          body: 'DateNight test!',
-          from: '+14079015704',
-          to: number
-      )
-      puts message.status
+    request = Request.find(params[:request_id])
+    contacts = request.contacts
+
+    # DEMO HACK - pretend to wait to till time by just sleeping for a bit
+    request.itinerary_items.each_with_index do |item, item_idx|
+      contacts.each do |contact|
+        body = ""
+        if item_idx == 0
+          body = "Your itinerary is ready! Your first stop is #{item.place} - #{item.map_url}"
+        else
+          body = "Get ready, in 15 minutes you're heading to #{item.place} - #{item.map_url}"
+        end
+        message = @client.messages.create(
+            body: body,
+            from: '+14079015704',
+            to: contact.phone,
+        )
+        puts message.status
+      end
+
+      sleep 10
     end
   end 
 

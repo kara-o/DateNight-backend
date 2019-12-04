@@ -47,8 +47,9 @@ class Api::V1::RequestsController < ApplicationController
         address: pkg_item.address,
         place: pkg_item.place,
         blurb: pkg_item.blurb,
-        map: pkg_item.map,
         make_res_link: pkg_item.make_res_link,
+        map_url: pkg_item.map_url,
+        map_iframe_url: pkg_item.map_iframe_url,
       })
       curr_time += pkg_item.duration.minutes
     end
