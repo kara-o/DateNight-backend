@@ -1,5 +1,5 @@
 class ItineraryPackageSerializer < ActiveModel::Serializer
-  attributes :id, :neighborhood, :price_range, :title, :blurb, :itinerary_package_items
+  attributes :id, :neighborhood_id, :neighborhood, :price_range, :price_range_id, :title, :blurb, :itinerary_package_items
 
   def neighborhood
     Neighborhood.find(self.object.neighborhood_id).name
