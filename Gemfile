@@ -51,3 +51,5 @@ gem "faker", "~> 2.7"
 gem 'devise'
 
 gem 'devise_token_auth'
+
+gem 'twilio-ruby'

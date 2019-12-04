@@ -26,6 +26,8 @@ Rails.application.routes.draw do
           resources :itinerary_packages, only: [:index, :create, :show] do
             resources :itinerary_package_items, only: [:create, :index]
           end
+
+          post '/texts', to: 'texts#create'
         end
     
         resources :users, only: [:create] do
