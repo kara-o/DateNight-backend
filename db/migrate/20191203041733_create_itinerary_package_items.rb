@@ -1,7 +1,7 @@
 class CreateItineraryPackageItems < ActiveRecord::Migration[6.0]
   def change
     create_table :itinerary_package_items do |t|
-      t.integer :time
+      t.integer :duration
       t.string :address
       t.string :place
       t.text :blurb

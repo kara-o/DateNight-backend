@@ -36,16 +36,21 @@ class Api::V1::RequestsController < ApplicationController
 
   def apply_package
     itin_package = ItineraryPackage.find(params[:itinerary_package_id])
+    request = Request.find(params[:id])
+
+    curr_time = request.start_time
     itin_package.itinerary_package_items.each do |pkg_item|
       ItineraryItem.create({
         request_id: params[:id],
-        time: pkg_item.time,  # TODO: make datetime?
+        arrival_time: curr_time,
+        duration: pkg_item.duration,
         address: pkg_item.address,
         place: pkg_item.place,
         blurb: pkg_item.blurb,
         map: pkg_item.map,
         make_res_link: pkg_item.make_res_link,
       })
+      curr_time += pkg_item.duration.minutes
     end
 
     request = Request.find(params[:id])

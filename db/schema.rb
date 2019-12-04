@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 2019_12_03_041733) do
 
   create_table "itinerary_items", force: :cascade do |t|
     t.integer "request_id"
-    t.integer "time"
+    t.datetime "arrival_time"
+    t.integer "duration"
     t.string "address"
     t.string "place"
     t.text "blurb"
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_041733) do
   end
 
   create_table "itinerary_package_items", force: :cascade do |t|
-    t.integer "time"
+    t.integer "duration"
     t.string "address"
     t.string "place"
     t.text "blurb"

@@ -4,7 +4,7 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
   def create
     pkg_item = ItineraryPackageItem.create({
       itinerary_package_id: params[:itinerary_package_id],
-      time: params[:time],
+      duration: params[:duration],
       address: params[:address],
       place: params[:place],
       blurb: params[:blurb],
