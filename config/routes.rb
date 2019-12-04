@@ -20,11 +20,13 @@ Rails.application.routes.draw do
           get '/itinerary_items', to: 'itinerary_items#index'
           post '/itinerary_items', to: 'itinerary_items#create'
 
+          post '/texts', to: 'texts#create'
+
           # Applying a Itinerary Package to a request
           post '/requests/:id/itinerary_packages', to: 'requests#apply_package'
 
           resources :itinerary_packages, only: [:index, :create, :show] do
-            resources :itinerary_package_items, only: [:create, :index]
+            resources :itinerary_package_items, only: [:create, :index, :destroy]
           end
         end
     
