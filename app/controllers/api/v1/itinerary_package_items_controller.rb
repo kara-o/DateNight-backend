@@ -24,6 +24,10 @@ class Api::V1::ItineraryPackageItemsController < ApplicationController
     render json: pkg_items
   end
 
+  def destroy
+    ItineraryPackageItem.destroy(params[:id])
+  end 
+
   private
 
   def pkg_item_params
