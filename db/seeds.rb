@@ -59,7 +59,7 @@ pkg8 = ItineraryPackage.create(title: "Magnolia Night", neighborhood_id: qa.id, 
 pkg9 = ItineraryPackage.create(title: "Fremont Night with a Healthy Twist", neighborhood_id: ballard.id, blurb: "Eating wholesome clean food in Fremont, followed by wine of course :)", price_range_id: two.id)
 
 pkg10 = ItineraryPackage.create(title: "Romantic Night in Ballard", neighborhood_id: ballard.id, blurb: "Romantic night in Ballard - enjoy wonderful food in a romantic cozy environment followed up by drinks in an equally lovely spot.", price_range_id: three.id)
-pkg11 = ItineraryPackage.create(title: "Greenwood Faves Night", neighborhood_id: greenwood.id, blurb: "Enjoy Greenwood gems, all within the same block!", price_range_id: $$.id)
+pkg11 = ItineraryPackage.create(title: "Greenwood Faves Night", neighborhood_id: greenwood.id, blurb: "Enjoy Greenwood gems, all within the same block!", price_range_id: two.id)
 # pkg = ItineraryPackage.create(title: "", neighborhood_id: , blurb: "", price_range_id: )
 # pkg = ItineraryPackage.create(title: "", neighborhood_id: , blurb: "", price_range_id: )
 # pkg = ItineraryPackage.create(title: "", neighborhood_id: , blurb: "", price_range_id: )
