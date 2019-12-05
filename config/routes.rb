@@ -25,7 +25,7 @@ Rails.application.routes.draw do
           # Applying a Itinerary Package to a request
           post '/requests/:id/itinerary_packages', to: 'requests#apply_package'
 
-          resources :itinerary_packages, only: [:index, :create, :show] do
+          resources :itinerary_packages, only: [:index, :create, :show, :update] do
             resources :itinerary_package_items, only: [:create, :index, :destroy]
           end
         end

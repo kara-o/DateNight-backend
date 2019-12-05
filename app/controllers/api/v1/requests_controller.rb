@@ -13,7 +13,7 @@ class Api::V1::RequestsController < ApplicationController
 
   def index
     if params[:user_id]
-      requests = Request.where(user_id: params[:user_id])
+      requests = Request.where(user_id: params[:user_id]).order(:start_time)
     else
       requests = Request.order(:start_time)
     end
