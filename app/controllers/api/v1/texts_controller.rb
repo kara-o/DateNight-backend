@@ -12,9 +12,6 @@ class Api::V1::TextsController < ApplicationController
   def create
     request = Request.find(params[:request_id])
     contacts = request.contacts
-
-    byebug
-
     # DEMO HACK - pretend to wait to till time by just sleeping for a bit
     request.itinerary_items.each_with_index do |item, item_idx|
       contacts.each do |contact|
