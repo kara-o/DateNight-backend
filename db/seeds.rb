@@ -115,3 +115,7 @@ ItineraryItem.create(request_id: r3.id, arrival_time: r3.start_time, duration: i
 ItineraryItem.create(request_id: r3.id, arrival_time: r3.start_time + i21.duration.minutes, duration: i22.duration, address: i22.address, place: i22.place, blurb: i22.blurb, map_iframe_url: i22.map_iframe_url, map_url: i22.map_url)
 ItineraryItem.create(request_id: r4.id, arrival_time: r4.start_time, duration: i5.duration, address: i5.address, place: i5.place, blurb: i5.blurb, map_iframe_url: i5.map_iframe_url, map_url: i5.map_url)
 ItineraryItem.create(request_id: r4.id, arrival_time: r4.start_time + i5.duration.minutes, duration: i6.duration, address: i6.address, place: i6.place, blurb: i6.blurb, map_iframe_url: i6.map_iframe_url, map_url: i6.map_url)
+
+Request.all.each do |r|
+  Contact.create(phone: '2069102789', request_id: r.id)
+end 
