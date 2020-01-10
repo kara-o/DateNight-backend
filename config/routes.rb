@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
     mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
-    # mount_devise_token_auth_for 'Admin', at: 'admin_auth', skip: [:omniauth_callbacks]
 
     mount_devise_token_auth_for 'Admin', at: 'admin_auth', controllers: {
       sessions: 'overrides/admin_auth/sessions',
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
 
           post '/texts', to: 'texts#create'
 
-          # Applying a Itinerary Package to a request
+          # Applying an Itinerary Package to a request
           post '/requests/:id/itinerary_packages', to: 'requests#apply_package'
 
           resources :itinerary_packages, only: [:index, :create, :show, :update] do
@@ -41,5 +40,7 @@ Rails.application.routes.draw do
 
       end
     end
+
+    get '/scrapes', to: 'scrapes#get_names'
 end
 
