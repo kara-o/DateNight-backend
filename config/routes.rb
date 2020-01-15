@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           patch '/requests/:id', to: 'requests#update'
           get '/itinerary_items', to: 'itinerary_items#index'
           post '/itinerary_items', to: 'itinerary_items#create'
+          delete '/itinerary_items/:id', to: 'itinerary_items#destroy'
 
           post '/texts', to: 'texts#create'
 
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get '/scrapes', to: 'scrapes#get_names'
+    post '/scrapes', to: 'scrapes#get_names'
+    post '/scrapes/single_page', to: 'scrapes#single_page'
 end
 
