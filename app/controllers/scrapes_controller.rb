@@ -4,6 +4,7 @@ require 'open-uri'
 class ScrapesController < ApplicationController
 
   def get_names
+    #byebug
     neighborhood = ''
 
     if params[:location] == 'p/g/g'
@@ -24,16 +25,29 @@ class ScrapesController < ApplicationController
       neighborhood = '&regionids%5B%5D=1'
     end
     
-    doc = Nokogiri::HTML(open('https://www.opentable.com/s/?covers=2&currentview=list&datetime=' + (Time.now + 604800).strftime('%F') + '+19%3A00&size=100&sort=Popularity' + neighborhood))
-    name_divs = doc.css('.rest-row-name-text')
+    doc = Nokogiri::HTML(open('https://www.opentable.com/s/?covers=2&currentview=list&datetime=' + params[:time] + '+19%3A00&size=100&sort=Popularity' + neighborhood))
+    name_divs = doc.css('.rest-row-header')
     names = []
     2.times do 
       name_divs.each do |div|
-        names << div.text
+        link = div.css('a').collect{|link| link['href']}[0]
+        name = div.css('.rest-row-name-text').text
+        names << { link: link, name: name }
       end
-      doc = Nokogiri::HTML(open('https://www.opentable.com/s/?covers=2&currentview=list&datetime=' + (Time.now + 604800).strftime('%F') + '+19%3A00&size=100&sort=Popularity' + neighborhood + '&from=100'))
+      doc = Nokogiri::HTML(open('https://www.opentable.com/s/?covers=2&currentview=list&datetime=' + params[:time] + '+19%3A00&size=100&sort=Popularity' + neighborhood + '&from=100'))
     end
     render json: names
+  end 
+
+  def single_page
+    info = []
+    link = params[:link]
+    doc = Nokogiri::HTML(open(link))
+    blurb = doc.css('#overview-section > div._3c23fa05 > div > div > div').inner_text
+    
+    info << {blurb: blurb}
+    render json: info
+
   end 
 
 end
