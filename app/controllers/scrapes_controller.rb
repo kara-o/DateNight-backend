@@ -40,12 +40,15 @@ class ScrapesController < ApplicationController
   end 
 
   def single_page
-    info = []
     link = params[:link]
     doc = Nokogiri::HTML(open(link))
+    name = doc.css('#overview-section > div._28eeaf1d > div._5d321873 > h1').inner_text
+    neighborhood = doc.css('#js-page > div._54265dcc.d210ec04 > aside > div.bfdedf6a > div:nth-child(2) > div > div._8ecd35dd > div > div._1e466fbf > div:nth-child(2) > div > div.df8add00 > div.e7ff71b6.b2f6d1a4 > a').inner_text
     blurb = doc.css('#overview-section > div._3c23fa05 > div > div > div').inner_text
+    cuisine = doc.css('#overview-section > div._28eeaf1d > div.d3ba82e4 > div:nth-child(3) > div > div.df8add00 > div > span').inner_text
+    price = doc.css('#overview-section > div._28eeaf1d > div.d3ba82e4 > div:nth-child(2) > div > div.df8add00 > div > span').inner_text
     
-    info << {blurb: blurb}
+    info = {name: name, neighborhood: neighborhood, cuisine: cuisine, price: price, blurb: blurb}
     render json: info
 
   end 
