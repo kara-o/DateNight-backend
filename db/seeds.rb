@@ -100,22 +100,22 @@ i28 = ItineraryPackageItem.create(duration: 45, address: "2811 E Madison St, Sea
 
 
 
-r1 = Request.create(start_time: "Fri Nov 21 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Fri Nov 21 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Something romantic in Ballard please!", neighborhood_id: ballard.id, price_range_id: three.id, user_id: kara.id, fulfilled: true)
-r2 = Request.create(start_time: "Wed Dec 4 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Wed Dec 4 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Something with veg options", neighborhood_id: ballard.id, price_range_id: two.id, user_id: kara.id, fulfilled: true)
-r3 = Request.create(start_time: "Sat Nov 16 2019 18:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Sat Nov 16 2019 22:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Surprise me!", neighborhood_id: greenwood.id, price_range_id: two.id, user_id: kara.id, fulfilled: true)
-r4 = Request.create(start_time: "Thu Oct 24 2019 19:30:00 GMT-0800 (Pacific Standard Time)", end_time: "Thu Oct 24 2019 23:30:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Mexican", neighborhood_id: caphill.id, price_range_id: two.id, user_id: kara.id, fulfilled: true)
-r5 = Request.create(start_time: "Sat Dec 7 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Sat Dec 7 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Something easy but fun downtown please!", neighborhood_id: downtown.id, price_range_id: two.id, user_id: kara.id, fulfilled: false)
-r6 = Request.create(start_time: "Sun Dec 8 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Sun Dec 8 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Easy downtown place, by the market please", neighborhood_id: downtown.id, price_range_id: two.id, user_id: kara.id, fulfilled: false, cancelled: true)
+# r1 = Request.create(start_time: "Fri Nov 21 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Fri Nov 21 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Something romantic in Ballard please!", neighborhood_id: ballard.id, price_range_id: three.id, user_id: kara.id, fulfilled: true)
+# r2 = Request.create(start_time: "Wed Dec 4 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Wed Dec 4 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Something with veg options", neighborhood_id: ballard.id, price_range_id: two.id, user_id: kara.id, fulfilled: true)
+# r3 = Request.create(start_time: "Sat Nov 16 2019 18:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Sat Nov 16 2019 22:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Surprise me!", neighborhood_id: greenwood.id, price_range_id: two.id, user_id: kara.id, fulfilled: true)
+# r4 = Request.create(start_time: "Thu Oct 24 2019 19:30:00 GMT-0800 (Pacific Standard Time)", end_time: "Thu Oct 24 2019 23:30:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Mexican", neighborhood_id: caphill.id, price_range_id: two.id, user_id: kara.id, fulfilled: true)
+# r5 = Request.create(start_time: "Sat Dec 7 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Sat Dec 7 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Something easy but fun downtown please!", neighborhood_id: downtown.id, price_range_id: two.id, user_id: kara.id, fulfilled: false)
+# r6 = Request.create(start_time: "Sun Dec 8 2019 19:00:00 GMT-0800 (Pacific Standard Time)", end_time: "Sun Dec 8 2019 23:00:00 GMT-0800 (Pacific Standard Time)", party_size: 2, notes: "Easy downtown place, by the market please", neighborhood_id: downtown.id, price_range_id: two.id, user_id: kara.id, fulfilled: false, cancelled: true)
 
-ItineraryItem.create(request_id: r1.id, arrival_time: r1.start_time, duration: i19.duration, address: i19.address, place: i19.place, blurb: i19.blurb, map_iframe_url: i19.map_iframe_url, map_url: i19.map_url)
-ItineraryItem.create(request_id: r1.id, arrival_time: r1.start_time + i19.duration.minutes, duration: i20.duration, address: i20.address, place: i20.place, blurb: i20.blurb, map_iframe_url: i20.map_iframe_url, map_url: i20.map_url)
-ItineraryItem.create(request_id: r2.id, arrival_time: r2.start_time, duration: i17.duration, address: i17.address, place: i17.place, blurb: i17.blurb, map_iframe_url: i17.map_iframe_url, map_url: i17.map_url)
-ItineraryItem.create(request_id: r2.id, arrival_time: r2.start_time + i17.duration.minutes, duration: i18.duration, address: i18.address, place: i18.place, blurb: i18.blurb, map_iframe_url: i18.map_iframe_url, map_url: i18.map_url)
-ItineraryItem.create(request_id: r3.id, arrival_time: r3.start_time, duration: i21.duration, address: i21.address, place: i21.place, blurb: i21.blurb, map_iframe_url: i21.map_iframe_url, map_url: i21.map_url)
-ItineraryItem.create(request_id: r3.id, arrival_time: r3.start_time + i21.duration.minutes, duration: i22.duration, address: i22.address, place: i22.place, blurb: i22.blurb, map_iframe_url: i22.map_iframe_url, map_url: i22.map_url)
-ItineraryItem.create(request_id: r4.id, arrival_time: r4.start_time, duration: i5.duration, address: i5.address, place: i5.place, blurb: i5.blurb, map_iframe_url: i5.map_iframe_url, map_url: i5.map_url)
-ItineraryItem.create(request_id: r4.id, arrival_time: r4.start_time + i5.duration.minutes, duration: i6.duration, address: i6.address, place: i6.place, blurb: i6.blurb, map_iframe_url: i6.map_iframe_url, map_url: i6.map_url)
+# ItineraryItem.create(request_id: r1.id, arrival_time: r1.start_time, duration: i19.duration, address: i19.address, place: i19.place, blurb: i19.blurb, map_iframe_url: i19.map_iframe_url, map_url: i19.map_url)
+# ItineraryItem.create(request_id: r1.id, arrival_time: r1.start_time + i19.duration.minutes, duration: i20.duration, address: i20.address, place: i20.place, blurb: i20.blurb, map_iframe_url: i20.map_iframe_url, map_url: i20.map_url)
+# ItineraryItem.create(request_id: r2.id, arrival_time: r2.start_time, duration: i17.duration, address: i17.address, place: i17.place, blurb: i17.blurb, map_iframe_url: i17.map_iframe_url, map_url: i17.map_url)
+# ItineraryItem.create(request_id: r2.id, arrival_time: r2.start_time + i17.duration.minutes, duration: i18.duration, address: i18.address, place: i18.place, blurb: i18.blurb, map_iframe_url: i18.map_iframe_url, map_url: i18.map_url)
+# ItineraryItem.create(request_id: r3.id, arrival_time: r3.start_time, duration: i21.duration, address: i21.address, place: i21.place, blurb: i21.blurb, map_iframe_url: i21.map_iframe_url, map_url: i21.map_url)
+# ItineraryItem.create(request_id: r3.id, arrival_time: r3.start_time + i21.duration.minutes, duration: i22.duration, address: i22.address, place: i22.place, blurb: i22.blurb, map_iframe_url: i22.map_iframe_url, map_url: i22.map_url)
+# ItineraryItem.create(request_id: r4.id, arrival_time: r4.start_time, duration: i5.duration, address: i5.address, place: i5.place, blurb: i5.blurb, map_iframe_url: i5.map_iframe_url, map_url: i5.map_url)
+# ItineraryItem.create(request_id: r4.id, arrival_time: r4.start_time + i5.duration.minutes, duration: i6.duration, address: i6.address, place: i6.place, blurb: i6.blurb, map_iframe_url: i6.map_iframe_url, map_url: i6.map_url)
 
-Request.all.each do |r|
-  Contact.create(phone: '2069102789', request_id: r.id)
-end 
+# Request.all.each do |r|
+#   Contact.create(phone: '2069102789', request_id: r.id)
+# end 

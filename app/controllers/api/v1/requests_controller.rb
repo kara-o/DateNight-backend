@@ -58,6 +58,22 @@ class Api::V1::RequestsController < ApplicationController
     render json: { request: RequestSerializer.new(request) }
   end
 
+  def add_single_item
+    ItineraryItem.create({
+      request_id: params[:id],
+      arrival_time: params[:reservation_time],
+      duration: 90,
+      address: params[:address],
+      place: params[:name],
+      blurb: params[:blurb],
+      make_res_link: params[:make_res_link],
+      map_url: params[:map_url],
+      map_iframe_url: params[:map_iframe_url],
+    })
+    request = Request.find(params[:id])
+    render json: { request: RequestSerializer.new(request) }
+  end 
+
   private
 
   def request_params
