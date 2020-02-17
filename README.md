@@ -1,6 +1,8 @@
 # DateNight - Back End
 
-DateNight is a single-page web-based application designed for couples/partners who need some sponteaneity when it comes to going out to eat. The app is designed to have both user and admin interfaces.
+DateNight is a single-page web-based application designed for couples/partners who need some sponteaneity when it comes to going out to eat. 
+
+This is my final project completed during Module Five at Flatiron School.  It is a single page web application built with a Rails API backend and a [ReactJS front end](https://github.com/kara-o/DateNight-frontend).  The app is designed with separate user and admin interfaces.
 
 ### Built With
 
