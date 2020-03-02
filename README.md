@@ -1,24 +1,22 @@
-# README
+# DateNight - Back End
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DateNight is a single-page web-based application designed for couples/partners who need some sponteaneity when it comes to going out to eat. 
 
-Things you may want to cover:
+This is my final project completed during Module Five at Flatiron School.  It is a single page web application built with a Rails API backend and a [ReactJS front end](https://github.com/kara-o/DateNight-frontend).  The app is designed with separate user and admin interfaces.
 
-* Ruby version
+### Built With
 
-* System dependencies
++ Ruby on Rails
++ PostgresQL database
 
-* Configuration
+### How to Run
 
-* Database creation
+Please install my [ReactJS front end](https://github.com/kara-o/DateNight-frontend) as well.
 
-* Database initialization
+In your terminal navigate to the directory where you want to save the back end files, then enter and run each step:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. `git clone git@github.com:kara-o/DateNight-backend.git`
+1. `cd backend-datenight`
+1. `bundle install`
+1. `rails db:create && rails db:migrate && rails db:seed`
+1. `rails s`
