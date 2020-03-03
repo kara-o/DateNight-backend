@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  namespace :api do
+
     mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
 
     mount_devise_token_auth_for 'Admin', at: 'admin_auth', controllers: {
       sessions: 'overrides/admin_auth/sessions',
       registrations: 'overrides/admin_auth/registrations'
     }
-
-    namespace :api do
+    
       namespace :v1 do
 
         devise_scope :admin do
