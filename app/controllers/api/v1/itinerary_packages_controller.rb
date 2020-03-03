@@ -20,6 +20,15 @@ class Api::V1::ItineraryPackagesController < ApplicationController
     render json: itin_pkg
   end
 
+  def update
+    itin_pkg = ItineraryPackage.update(params[:id], itin_pkg_params)
+    if itin_pkg.valid?
+      render json: itin_pkg, status: :updated
+    else
+      render json: { errors: { error_obj: itin_pkg.errors.messages, full_messages: itin_pkg.errors.full_messages} }, status: :not_acceptable
+    end 
+  end
+
   private
 
   def itin_pkg_params

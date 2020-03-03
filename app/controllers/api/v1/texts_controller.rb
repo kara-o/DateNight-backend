@@ -12,15 +12,14 @@ class Api::V1::TextsController < ApplicationController
   def create
     request = Request.find(params[:request_id])
     contacts = request.contacts
-
     # DEMO HACK - pretend to wait to till time by just sleeping for a bit
     request.itinerary_items.each_with_index do |item, item_idx|
       contacts.each do |contact|
         body = ""
         if item_idx == 0
-          body = "Your itinerary is ready! Your first stop is #{item.place} - #{item.map_url}"
+          body = "Hi there!  Are you ready for a fun night?? Here is your FIRST stop (we will send you alerts throughout the night telling you where to go next!): #{item.place} - #{item.blurb} - #{item.map_url}"
         else
-          body = "Get ready, in 15 minutes you're heading to #{item.place} - #{item.map_url}"
+          body = "Sorry to interrupt, but it's almost time for your next stop!  Hope you are ready to keep having fun!  Your next stop is: #{item.place} - #{item.blurb} - #{item.map_url}"
         end
         message = @client.messages.create(
             body: body,
