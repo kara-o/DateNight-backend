@@ -77,6 +77,7 @@ class Api::V1::RequestsController < ApplicationController
   private
 
   def request_params
+    puts params
     params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, :cancelled, :fulfilled, contacts_attributes: [:id, :phone])
   end 
 
