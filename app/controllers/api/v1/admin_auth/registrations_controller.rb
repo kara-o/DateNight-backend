@@ -1,4 +1,4 @@
-class Overrides::AdminAuth::RegistrationsController < DeviseTokenAuth::RegistrationsController
+class Api::V1::AdminAuth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   protected
 
   def render_create_success

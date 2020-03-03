@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
   namespace :api do
+    namespace :v1 do
 
-    mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+    mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks], controllers: {
+      confirmations:      'api/v1/auth/confirmations',
+      passwords:          'api/v1/auth/passwords',
+      registrations:      'api/v1/auth/registrations',
+      sessions:           'api/v1/auth/sessions',
+      token_validations:  'api/v1/auth/token_validations'
+    }
 
     mount_devise_token_auth_for 'Admin', at: 'admin_auth', controllers: {
-      sessions: 'overrides/admin_auth/sessions',
-      registrations: 'overrides/admin_auth/registrations'
+      confirmations:      'api/v1/admin_auth/confirmations',
+      passwords:          'api/v1/admin_auth/passwords',
+      sessions: 'api/v1/admin_auth/sessions',
+      registrations: 'api/v1/admin_auth/registrations',
+      token_validations:  'api/v1/admin_auth/token_validations'
     }
-    
-      namespace :v1 do
 
         devise_scope :admin do
           # TODO: convert to resources
