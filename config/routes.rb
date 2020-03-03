@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
 
     mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
-    # mount_devise_token_auth_for 'Admin', at: 'admin_auth', skip: [:omniauth_callbacks]
-    
+
     mount_devise_token_auth_for 'Admin', at: 'admin_auth', controllers: {
       sessions: 'overrides/admin_auth/sessions',
       registrations: 'overrides/admin_auth/registrations'
@@ -20,13 +19,17 @@ Rails.application.routes.draw do
           patch '/requests/:id', to: 'requests#update'
           get '/itinerary_items', to: 'itinerary_items#index'
           post '/itinerary_items', to: 'itinerary_items#create'
+          delete '/itinerary_items/:id', to: 'itinerary_items#destroy'
 
           post '/texts', to: 'texts#create'
 
-          # Applying a Itinerary Package to a request
+          # Applying an Itinerary Package to a request
           post '/requests/:id/itinerary_packages', to: 'requests#apply_package'
 
-          resources :itinerary_packages, only: [:index, :create, :show] do
+          # Adding single Itinerary Item to a request
+          post '/requests/:id/itinerary_items', to: 'requests#add_single_item'
+
+          resources :itinerary_packages, only: [:index, :create, :show, :update] do
             resources :itinerary_package_items, only: [:create, :index, :destroy]
           end
         end
@@ -42,5 +45,8 @@ Rails.application.routes.draw do
 
       end
     end
+
+    post '/scrapes', to: 'scrapes#get_names'
+    post '/scrapes/single_page', to: 'scrapes#single_page'
 end
 

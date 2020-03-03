@@ -13,7 +13,7 @@ class Api::V1::RequestsController < ApplicationController
 
   def index
     if params[:user_id]
-      requests = Request.where(user_id: params[:user_id])
+      requests = Request.where(user_id: params[:user_id]).order(:start_time)
     else
       requests = Request.order(:start_time)
     end
@@ -57,6 +57,22 @@ class Api::V1::RequestsController < ApplicationController
     request = Request.find(params[:id])
     render json: { request: RequestSerializer.new(request) }
   end
+
+  def add_single_item
+    ItineraryItem.create({
+      request_id: params[:id],
+      arrival_time: params[:reservation_time],
+      duration: 90,
+      address: params[:address],
+      place: params[:name],
+      blurb: params[:blurb],
+      make_res_link: params[:make_res_link],
+      map_url: params[:map_url],
+      map_iframe_url: params[:map_iframe_url],
+    })
+    request = Request.find(params[:id])
+    render json: { request: RequestSerializer.new(request) }
+  end 
 
   private
 
