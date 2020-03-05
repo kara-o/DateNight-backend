@@ -32,6 +32,9 @@ Rails.application.routes.draw do
           post '/itinerary_items', to: 'itinerary_items#create'
           delete '/itinerary_items/:id', to: 'itinerary_items#destroy'
 
+          post '/scrapes', to: 'scrapes#get_names'
+          post '/scrapes/single_page', to: 'scrapes#single_page'
+
           post '/texts', to: 'texts#create'
 
           # Applying an Itinerary Package to a request
@@ -57,7 +60,5 @@ Rails.application.routes.draw do
       end
     end
 
-    post '/scrapes', to: 'scrapes#get_names'
-    post '/scrapes/single_page', to: 'scrapes#single_page'
 end
 
