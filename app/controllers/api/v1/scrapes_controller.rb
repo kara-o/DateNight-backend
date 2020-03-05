@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-class ScrapesController < ApplicationController
+class Api::V1::ScrapesController < ApplicationController
 
   def get_names
     neighborhood = ''
