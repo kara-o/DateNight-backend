@@ -1,5 +1,5 @@
 class RequestSerializer < ActiveModel::Serializer
-  attributes :id, :start_time, :end_time, :party_size, :neighborhood, :price_range, :user_id, :created_at, :updated_at, :fulfilled, :cancelled, :notes, :contacts, :itinerary_items
+  attributes :id, :start_time, :end_time, :party_size, :neighborhood, :price_range, :user_id, :created_at, :updated_at, :fulfilled, :cancelled, :notes, :contacts, :itinerary_items, :review
 
   def neighborhood
     Neighborhood.find(self.object.neighborhood_id).name

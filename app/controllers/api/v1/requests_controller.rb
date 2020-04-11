@@ -74,10 +74,19 @@ class Api::V1::RequestsController < ApplicationController
     render json: { request: RequestSerializer.new(request) }
   end 
 
+  def create_review
+    Review.create({
+      request_id: params[:id],
+      rating: params[:rating],
+      feedback: params[:feedback]
+    })
+    request = Request.find(params[:id])
+    render json: { request: RequestSerializer.new(request) }
+  end
+
   private
 
   def request_params
-    puts params
     params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, :cancelled, :fulfilled, contacts_attributes: [:id, :phone])
   end 
 

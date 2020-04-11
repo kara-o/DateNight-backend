@@ -28,8 +28,8 @@ Rails.application.routes.draw do
           get '/requests/:id', to: 'requests#show'
           post '/requests/:id', to: 'requests#update'
           patch '/requests/:id', to: 'requests#update'
-          get '/itinerary_items', to: 'itinerary_items#index'
-          post '/itinerary_items', to: 'itinerary_items#create'
+          get '/itinerary_items', to: 'itinerary_items#index'  # do i need this route
+          post '/itinerary_items', to: 'itinerary_items#create' #do i need this route
           delete '/itinerary_items/:id', to: 'itinerary_items#destroy'
 
           post '/scrapes', to: 'scrapes#get_names'
@@ -49,6 +49,7 @@ Rails.application.routes.draw do
         end
     
         resources :users, only: [:create] do
+          post '/requests/:id/reviews', to: 'requests#create_review'
           resources :requests, only: [:create, :index, :show, :update] do
             resources :itinerary_items, only: [:index]
           end
