@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.integer :rating
       t.text :feedback, null: true
       t.integer :request_id
+      t.timestamps
     end
   end
 end
