@@ -84,6 +84,15 @@ class Api::V1::RequestsController < ApplicationController
     render json: { request: RequestSerializer.new(request) }
   end
 
+  def update_admin_review
+    review = Review.find(params[:id])
+    if review.update({admin_reviewed: params[:admin_reviewed]})
+      render json: review
+    else
+      render json: { errors: { error_obj: request.errors.messages, full_messages: request.errors.full_messages} }, status: :not_acceptable
+    end
+  end
+
   private
 
   def request_params
