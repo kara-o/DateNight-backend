@@ -43,6 +43,8 @@ Rails.application.routes.draw do
           # Adding single Itinerary Item to a request
           post '/requests/:id/itinerary_items', to: 'requests#add_single_item'
 
+          patch '/requests/:id/reviews/:id', to: 'requests#update_admin_review'
+
           resources :itinerary_packages, only: [:index, :create, :show, :update] do
             resources :itinerary_package_items, only: [:create, :index, :destroy]
           end

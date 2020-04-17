@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_003229) do
     t.integer "rating"
     t.text "feedback"
     t.integer "request_id"
+    t.datetime "admin_reviewed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
