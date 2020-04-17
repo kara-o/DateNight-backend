@@ -4,23 +4,23 @@ require 'open-uri'
 class Api::V1::ScrapesController < ApplicationController
 
   def get_names
-    neighborhood = ''
+    neighborhood = 'NOT VALID'
 
-    if params[:location] == 'p/g/g'
+    if params[:location] == 'Greenwood / Greenlake / Phinney Ridge'
       neighborhood = '&neighborhoodids%5B%5D=740&neighborhoodids%5B%5D=2159&neighborhoodids%5B%5D=9149'
-    elsif params[:location] == 'b/f'
-      neighborhood = '&neighborhoodids%5B%5D=121&neighborhoodids%5B%5D=475'
-    elsif params[:location] == 'd'
+    elsif params[:location] == 'Ballard / Fremont / Wallingford'
+      neighborhood = '&neighborhoodids%5B%5D=121&neighborhoodids%5B%5D=475&neighborhoodids%5B%5D=821'
+    elsif params[:location] == 'Downtown'
       neighborhood = '&neighborhoodids%5B%5D=58'
-    elsif params[:location] == 'ch'
+    elsif params[:location] == 'Capitol Hill'
       neighborhood = '&neighborhoodids%5B%5D=130'
-    elsif params[:location] == 'bell/pp'
-      neighborhood = '&neighborhoodids%5B%5D=471'
-    elsif params[:location] == 'qa/m'
+    # elsif params[:location] == 'bell/pp'
+    #   neighborhood = '&neighborhoodids%5B%5D=471'
+    elsif params[:location] == 'Queen Anne / Magnolia'
       neighborhood = '&neighborhoodids%5B%5D=458&neighborhoodids%5B%5D=5207'
-    elsif params[:location] == 'w/f'
-      neighborhood = '&neighborhoodids%5B%5D=121&neighborhoodids%5B%5D=821'
-    else
+    # elsif params[:location] == 'w/f'
+    #   neighborhood = '&neighborhoodids%5B%5D=121&neighborhoodids%5B%5D=821'
+    elsif params[:location] == 'All'
       neighborhood = '&regionids%5B%5D=1'
     end
     
