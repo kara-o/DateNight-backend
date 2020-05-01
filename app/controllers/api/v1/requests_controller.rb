@@ -96,7 +96,7 @@ class Api::V1::RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, :cancelled, :fulfilled, contacts_attributes: [:id, :phone])
+    params.require(:request).permit(:start_time, :end_time, :party_size, :notes, :neighborhood_id, :price_range_id, :user_id, :cancelled, :fulfilled, :admin_addressed_cancel, contacts_attributes: [:id, :phone])
   end 
 
 end
