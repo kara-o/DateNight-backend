@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "heroku-postbuild": "aws s3 sync build s3://datenight-bucket"
+  }
+}
